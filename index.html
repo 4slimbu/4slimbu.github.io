@@ -180,6 +180,16 @@ svg .al{fill:var(--mark);font:600 11px var(--body)}
 .btn{font:500 .92rem var(--body);border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:6px;padding:7px 12px;cursor:pointer;text-decoration:none}
 .btn:hover{background:var(--accent);color:var(--paper)}
 footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:400 .9rem var(--body);color:var(--muted)}
+
+/* calibration demo */
+.demo{padding:16px 18px 14px}
+.demo-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.readout{font:500 .88rem var(--mono);color:var(--ink);font-variant-numeric:tabular-nums}
+.demo-grid{display:grid;grid-template-columns:minmax(0,2.6fr) minmax(0,1fr);gap:14px;align-items:center}
+@media (max-width:600px){.demo-grid{grid-template-columns:minmax(0,1fr)}}
+#cam{width:100%;aspect-ratio:16/10;max-width:100%;display:block;background:var(--paper);border:1px solid var(--line);border-radius:4px;touch-action:none;cursor:crosshair}
+#map{width:100%;aspect-ratio:6.1/13.4;max-width:100%;display:block;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+@media (max-width:600px){#map{width:42%;justify-self:center}}
 </style>
 </head>
 <body>
@@ -196,6 +206,7 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
       <a href="#work">Other work</a>
       <a href="#experience">Experience</a>
       <a href="#how">How I work</a>
+      <a href="#engage">Work with me</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="toggle" id="theme" type="button" aria-label="Switch colour theme">Theme</button>
@@ -210,7 +221,8 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
       <p class="thesis">I've built software professionally for 11 years: APIs, web and mobile apps, data pipelines and, lately, computer vision. Most of my work has been taking a system from an idea or an inherited codebase to something stable in production, and then finding out why it is slow or wrong. I studied physics, so I measure before I change anything.</p>
       <dl class="status">
         <dt>Languages</dt><dd>Python, TypeScript, PHP, SQL</dd>
-        <dt>Recent</dt><dd>Main engineer at a US telecom (2,700+ hrs on GCP); built an AI video-analysis SaaS on my own</dd>
+        <dt>Now</dt><dd>CTO at LayaCreative, leading PlayInsight (AI video analytics)</dd>
+        <dt>Recent</dt><dd>Main engineer for a US telecom platform on Google Cloud (2,700+ hours)</dd>
         <dt>Cloud</dt><dd>Google Cloud (Cloud Run, Build, Scheduler), AWS (EC2, Beanstalk, Amplify, Lambda), Docker</dd>
         <dt>Record</dt><dd>Upwork Top Rated Plus, 100% job success; WordCamp Kathmandu 2023 speaker</dd>
         <dt>Time zone</dt><dd>UTC+5:45, with overlap for US and EU teams</dd>
@@ -223,10 +235,10 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     </header>
 
     <section id="cases">
-      <div class="head"><h2>Case studies</h2><span class="label">four systems, written up like design docs</span></div>
+      <div class="head"><h2>Case studies</h2><span class="label">four production systems</span></div>
       <table class="index">
         <tbody>
-          <tr><td>2026</td><td><a href="#playinsight">PlayInsight: AI badminton video analysis</a></td><td>Python · CV · FastAPI · Next.js</td></tr>
+          <tr><td>2026–</td><td><a href="#playinsight">PlayInsight (LayaCreative): AI video analytics</a></td><td>Python · CV · FastAPI · Next.js</td></tr>
           <tr><td>2024–26</td><td><a href="#vocatech">Vocatech: messaging, PBX admin and public API</a></td><td>PHP 8 · GCP · telecom APIs</td></tr>
           <tr><td>2023–26</td><td><a href="#sync">Promoted You Sync: product data syndication</a></td><td>PHP 8 · ETL · distributor APIs</td></tr>
           <tr><td>2022–24</td><td><a href="#balloon">BalloonApp: family fintech wallet API</a></td><td>NestJS · PostgreSQL · queues</td></tr>
@@ -236,83 +248,100 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
 
     <!-- CASE 1 -->
     <section class="case" id="playinsight">
-      <div class="kicker"><span>Own product</span><span>Jun–Aug 2026</span><span>Solo: research, models, backend, frontend</span></div>
-      <h2>PlayInsight: turning amateur badminton footage into match analytics</h2>
-      <p class="lede">You film a match on one phone. PlayInsight finds the players, the shuttle and the rackets, works out where the court is in 3D, splits the match into rallies and reports strokes, distance and speed per player.</p>
+      <div class="kicker"><span>LayaCreative</span><span>CTO</span><span>2026 – present</span></div>
+      <h2>PlayInsight: turning match footage into player analytics</h2>
+      <p class="lede">As CTO at LayaCreative I lead PlayInsight, a video analytics platform for badminton. A coach or player uploads a match filmed on one phone. PlayInsight finds the players, the shuttle and the rackets, reconstructs the court in 3D, splits the match into rallies and reports strokes, distance and speed for each player.</p>
 
       <figure>
         <div class="scroll">
-          <svg viewBox="0 0 760 290" role="img" aria-labelledby="pi-t">
-            <title id="pi-t">PlayInsight architecture: browser, FastAPI, Postgres, MinIO, Redis queue and native GPU workers</title>
+          <svg viewBox="0 0 760 330" role="img" aria-labelledby="pi-t">
+            <title id="pi-t">PlayInsight production architecture</title>
             <defs><marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs>
-            <rect class="bx" x="20" y="40" width="190" height="96" rx="5"/>
-            <text class="t" x="34" y="66">Browser</text>
-            <text class="s" x="34" y="86">Next.js 15 · React 19</text>
-            <text class="s" x="34" y="103">sql.js queries the</text>
-            <text class="s" x="34" y="119">.analysis.db locally</text>
 
-            <rect class="bx" x="290" y="40" width="190" height="96" rx="5"/>
-            <text class="t" x="304" y="66">FastAPI</text>
-            <text class="s" x="304" y="86">auth · collections</text>
-            <text class="s" x="304" y="103">calibration solve</text>
-            <text class="s" x="304" y="119">async SQLAlchemy</text>
+            <rect class="bx" x="20" y="24" width="170" height="74" rx="5"/>
+            <text class="t" x="34" y="48">Web app</text>
+            <text class="s" x="34" y="68">Next.js on Vercel edge</text>
+            <text class="s" x="34" y="84">queries results in-browser</text>
 
-            <rect class="bx" x="560" y="20" width="180" height="52" rx="5"/>
-            <text class="t" x="574" y="42">PostgreSQL</text>
-            <text class="s" x="574" y="60">users · videos · jobs</text>
+            <rect class="bx hl" x="290" y="24" width="190" height="74" rx="5"/>
+            <text class="t" x="304" y="48">API service</text>
+            <text class="s" x="304" y="68">FastAPI · containers</text>
+            <text class="s" x="304" y="84">JWT · roles · permissions</text>
 
-            <rect class="bx" x="560" y="92" width="180" height="62" rx="5"/>
-            <text class="t" x="574" y="114">MinIO (S3)</text>
-            <text class="s" x="574" y="132">video · previews</text>
-            <text class="s" x="574" y="146">.analysis.db files</text>
+            <rect class="bx" x="570" y="24" width="170" height="74" rx="5"/>
+            <text class="t" x="584" y="48">PostgreSQL</text>
+            <text class="s" x="584" y="68">managed · migrations</text>
+            <text class="s" x="584" y="84">users · videos · jobs</text>
 
-            <rect class="bx" x="290" y="196" width="190" height="62" rx="5"/>
-            <text class="t" x="304" y="220">Redis job queue</text>
-            <text class="s" x="304" y="240">progress · cancel · retry</text>
+            <rect class="bx" x="20" y="134" width="170" height="74" rx="5"/>
+            <text class="t" x="34" y="158">Object storage + CDN</text>
+            <text class="s" x="34" y="178">S3-compatible · signed URLs</text>
+            <text class="s" x="34" y="194">video · previews · results</text>
 
-            <rect class="bx hl" x="560" y="186" width="180" height="84" rx="5"/>
-            <text class="t" x="574" y="208">GPU workers ×3</text>
-            <text class="s" x="574" y="226">native, not Docker</text>
-            <text class="s" x="574" y="242">YOLOv8 · RTMPose</text>
-            <text class="s" x="574" y="258">rally state machine</text>
+            <rect class="bx" x="290" y="134" width="190" height="74" rx="5"/>
+            <text class="t" x="304" y="158">Job queue</text>
+            <text class="s" x="304" y="178">Redis · retries · cancellation</text>
+            <text class="s" x="304" y="194">progress and ETA events</text>
 
-            <path class="ar" d="M210 88 H286" marker-end="url(#ah1)" marker-start="url(#ah1)"/>
-            <path class="ar" d="M480 64 H520 V46 H556" marker-end="url(#ah1)"/>
-            <path class="ar" d="M480 112 H520 V123 H556" marker-end="url(#ah1)"/>
-            <path class="ar" d="M385 136 V192" marker-end="url(#ah1)"/>
-            <text class="al" x="393" y="170">enqueue</text>
-            <path class="ar" d="M480 227 H556" marker-end="url(#ah1)"/>
-            <text class="al" x="494" y="220">brpop</text>
-            <path class="ar" d="M650 186 V158" marker-end="url(#ah1)"/>
-            <text class="al" x="656" y="176">write results</text>
+            <rect class="bx hl" x="570" y="124" width="170" height="94" rx="5"/>
+            <text class="t" x="584" y="148">GPU workers</text>
+            <text class="s" x="584" y="168">serverless (Modal)</text>
+            <text class="s" x="584" y="184">autoscale, idle at zero</text>
+            <text class="s" x="584" y="200">custom YOLOv8 models</text>
+
+            <rect class="bx" x="290" y="246" width="450" height="62" rx="5"/>
+            <text class="t" x="304" y="270">Vision pipeline (per video)</text>
+            <text class="s" x="304" y="290">detect + track → pose → camera solve → rally state machine → stats → .analysis.db</text>
+
+            <path class="ar" d="M190 61 H286" marker-end="url(#ah1)" marker-start="url(#ah1)"/>
+            <text class="al" x="212" y="54">HTTPS</text>
+            <path class="ar" d="M480 61 H566" marker-end="url(#ah1)"/>
+            <path class="ar" d="M105 98 V130" marker-end="url(#ah1)" marker-start="url(#ah1)"/>
+            <text class="al" x="112" y="120">upload / fetch</text>
+            <path class="ar" d="M385 98 V130" marker-end="url(#ah1)"/>
+            <text class="al" x="392" y="120">enqueue</text>
+            <path class="ar" d="M480 171 H566" marker-end="url(#ah1)"/>
+            <text class="al" x="500" y="164">dispatch</text>
+            <path class="ar" d="M655 218 V242" marker-end="url(#ah1)"/>
+            <path class="ar" d="M290 277 H105 V212" marker-end="url(#ah1)"/>
+            <text class="al" x="150" y="270">write results</text>
           </svg>
         </div>
-        <figcaption>The API never serves per-frame analysis. Workers write a SQLite file per video; the browser downloads it once and queries it with sql.js.</figcaption>
+        <figcaption>Per-frame analysis never goes through the API. Workers write one SQLite file per video to storage; the browser fetches it once from the CDN and queries it locally while the video plays.</figcaption>
+      </figure>
+
+      <figure class="demo" aria-labelledby="demo-t">
+        <div class="demo-head"><span class="label" id="demo-t">Try it: court calibration</span><span class="readout" id="readout">Move over the court</span></div>
+        <div class="demo-grid">
+          <canvas id="cam" aria-label="Camera view of a badminton court. Drag the four corner handles."></canvas>
+          <canvas id="map" aria-label="Top-down view of the court in metres"></canvas>
+        </div>
+        <figcaption>Drag the four corners to match a camera angle, then point at the court. Your browser solves a 3×3 homography and maps the point onto the real 13.40 × 6.10 m doubles court. PlayInsight does this for every player and shuttle position in every frame.</figcaption>
       </figure>
 
       <div class="col">
         <h3>What I built</h3>
         <ul>
-          <li><b>Custom models.</b> I annotated frames from real matches and trained a YOLOv8 shuttle detector and a 5-keypoint racket pose model. Players use YOLOv8-pose with an RTMPose override.</li>
-          <li><b>Court geometry.</b> An interactive calibration tool (line-based, 1-pixel nudging, an anchor-line lock) solves the camera pose from court lines and net posts. The floor homography and net position are derived from that pose.</li>
-          <li><b>Rally detection.</b> A state machine with four start rules and five end rules (shuttle above the net, feet still, bounce, timeouts). Every start, end and false start is stored with its reason, so wrong calls can be replayed and explained.</li>
-          <li><b>The SaaS.</b> Uploads that stream multi-GB files, thumbnails and hover previews, a 30-day trash, a GPU job queue with live progress, cancel, retry and recovery of stuck jobs, player profiles across matches, and admin and per-user permissions.</li>
-          <li><b>The viewer.</b> Ten overlay layers drawn on canvas (skeleton, shuttle trail, heatmap, minimap and more), follow cam, frame stepping, and a 3D view from MotionBERT lifting with an avatar I built in Blender.</li>
+          <li><b>Custom models.</b> Shuttle detection and 5-keypoint racket pose models trained on annotated match footage, alongside YOLOv8-pose and RTMPose for players.</li>
+          <li><b>Court geometry.</b> Calibration solves the full 3D camera pose from court lines and net posts, then derives the floor homography and net plane from it. Outlier points are rejected and per-point reprojection error is shown to the user.</li>
+          <li><b>Rally detection.</b> A state machine with four start rules and five end rules (shuttle above the net, feet still, bounce, timeouts). Every decision is stored with its reason, so a wrong call can be replayed and explained.</li>
+          <li><b>Platform.</b> Multi-GB uploads, thumbnails and hover previews, a 30-day trash, a GPU job queue with live progress, cancel and retry, recovery of stuck jobs, player profiles across matches, and role-based permissions.</li>
+          <li><b>Viewer.</b> Ten overlay layers drawn on canvas (skeleton, shuttle trail, heatmap, minimap and more), follow cam, frame stepping, and a 3D replay built from MotionBERT pose lifting.</li>
         </ul>
 
         <h3>Decisions</h3>
         <div class="adrs">
-          <div class="adr"><span class="label">Decision</span><h4>Run GPU workers natively and poll Redis</h4><p>The workers run outside Docker. <span class="why">GPU passthrough in Docker cost setup time for no benefit at this stage. Redis keeps the API and workers decoupled, so workers can later move to a GPU host such as Modal without API changes.</span></p></div>
-          <div class="adr"><span class="label">Decision</span><h4>Ship results as a SQLite file instead of an API</h4><p>Each analysis is one <span class="mono">.analysis.db</span> in object storage. <span class="why">The viewer needs thousands of rows per second while scrubbing video. Serving that through REST would be slow and expensive; a file the browser queries locally is fast and costs nothing per request.</span></p></div>
-          <div class="adr"><span class="label">Decision</span><h4>Choose the 3D model by measurement</h4><p>I compared MotionBERT's mesh and pose models against the real 2D input. <span class="why">The mesh model correlated 0.26 with the input's X axis, the pose model 0.9988. I switched to the pose model, and documented the remaining ~30° torso tilt as a single-camera limit rather than tuning it away.</span></p></div>
+          <div class="adr"><span class="label">Decision</span><h4>Serverless GPU workers behind a queue</h4><p>Analysis runs on autoscaling GPU workers fed by a Redis queue. <span class="why">The load is bursty: a match needs minutes of GPU time, then nothing. Scaling to zero keeps cost proportional to use, and the queue keeps the API fast and makes jobs cancellable and retryable.</span></p></div>
+          <div class="adr"><span class="label">Decision</span><h4>Ship results as a SQLite file instead of an API</h4><p>Each analysis is one <span class="mono">.analysis.db</span> in object storage. <span class="why">The viewer reads thousands of rows per second while someone scrubs the video. Through REST that is slow and expensive; a file cached at the CDN and queried in the browser is fast and costs nothing per request.</span></p></div>
+          <div class="adr"><span class="label">Decision</span><h4>Choose the 3D model by measurement</h4><p>We compared MotionBERT's mesh and pose models against the real 2D input. <span class="why">The mesh model correlated 0.26 with the input's X axis, the pose model 0.9988. We shipped the pose model and documented the remaining torso-tilt bias as a single-camera limit, with multi-camera triangulation as the fix.</span></p></div>
         </div>
 
         <div class="facts">
-          <div><b>0.885</b><span>mAP50, custom shuttle detector</span></div>
-          <div><b>54</b><span>regression scenarios in the engine</span></div>
-          <div><b>29</b><span>SaaS releases in 7 weeks, each with a changelog</span></div>
+          <div><b>0.885</b><span>mAP50, in-house shuttle detector</span></div>
+          <div><b>10</b><span>synchronised overlay layers in the viewer</span></div>
+          <div><b>29</b><span>releases in 7 weeks, each with a changelog</span></div>
         </div>
-        <p class="stack"><b>Stack</b> Python · Ultralytics YOLOv8 · RTMPose · MotionBERT · OpenCV · NumPy · FFmpeg · FastAPI · SQLAlchemy (async) · Alembic · PostgreSQL · Redis · MinIO · Next.js 15 · TypeScript · sql.js · pytest · Ruff</p>
+        <p class="stack"><b>Stack</b> Python · YOLOv8 · RTMPose · MotionBERT · OpenCV · NumPy · FFmpeg · FastAPI · SQLAlchemy · PostgreSQL · Redis · S3 · Modal · Next.js · TypeScript · Vercel · pytest</p>
       </div>
     </section>
 
@@ -451,13 +480,6 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
             <dt>Fix</dt><dd>Pass the value through and store it. Fixed before it could ship.</dd></dl></div>
         </div>
         <div class="entry">
-          <div class="where">TikTok optimizer<br>Jul 2026</div>
-          <div><h4>Re-encoding made good videos worse</h4>
-            <dl><dt>Symptom</dt><dd>Uploads that were already fine lost quality after processing.</dd>
-            <dt>Cause</dt><dd>Always re-encoding dropped real bitrate from 16.7 to 11.6 Mbps. Diffing five reference outputs byte for byte also showed the padding trick inflates frame counts, not bitrate, which disproved two earlier theories.</dd>
-            <dt>Fix</dt><dd>Re-encode only when resolution or frame rate actually needs it; otherwise remux losslessly. Output verified SHA-256-identical to a known-good file.</dd></dl></div>
-        </div>
-        <div class="entry">
           <div class="where">Vocatech<br>Nov 2024</div>
           <div><h4>The same person listed twice in a space</h4>
             <dl><dt>Symptom</dt><dd>Duplicate members after people were added from inside Webex.</dd>
@@ -476,16 +498,12 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
 
     <!-- OTHER WORK -->
     <section id="work">
-      <div class="head"><h2>Other work</h2><span class="label">selected, newest first</span></div>
+      <div class="head"><h2>Other work</h2><span class="label">selected</span></div>
       <div class="work">
-        <article><h3>Social Scheduler</h3><div class="meta">2026 · own tool · FastAPI, Next.js</div><p>Publishes clips to YouTube, Facebook, Instagram and TikTok on a schedule. Each platform is one adapter file, OAuth tokens are encrypted at rest, and one platform failing doesn't block the others. 52 tests.</p></article>
-        <article><h3>Advantec Industrial</h3><div class="meta">2024–26 · pipe-bending QA system · PHP, MySQL</div><p>Took over a legacy app: added auth and routing, replaced an unsafe <span class="mono">LOAD DATA LOCAL INFILE</span> import, and built tolerance, ovality and location-based features.</p></article>
-        <article><h3>Procurify to inFlow sync</h3><div class="meta">2023–24 · Laravel</div><p>Daily purchase-order sync with one queued job per order, spaced to respect rate limits, plus a failure dashboard and emailed reports.</p></article>
-        <article><h3>WebPTron</h3><div class="meta">2024 · Laravel, Firebase · <a href="https://youtu.be/gM5PtUtS82I" target="_blank" rel="noopener">demo</a></div><p>Crawls a website, collects every image including srcset and lazy-loaded ones, converts them to WebP and shows live progress.</p></article>
-        <article><h3>Inside Retail network</h3><div class="meta">2017–20 · WordPress, VPS</div><p>Maintained the main site, 50+ regional sites (500k+ active users) and the servers, and wrote a plugin that syncs content across the network on a schedule.</p></article>
-        <article><h3>My Business Journey</h3><div class="meta">2017–23 · Laravel, React/Redux · Australia</div><p>A gamified business-setup app with partner lead hand-off, PDF profiles and email automation. Maintained for six years.</p></article>
-        <article><h3>Jobsearch</h3><div class="meta">2019–23 · React Native, Laravel</div><p>Job marketplace app with location-radius search and push notifications.</p></article>
-        <article><h3>Inheadline</h3><div class="meta">2017 · Laravel</div><p>News aggregator that crawled Nepal's major news sites and summarised each story in 50 words or fewer.</p></article>
+        <article><h3>Multi-channel video publishing</h3><div class="meta">LayaCreative · 2026 · FastAPI, Next.js</div><p>Schedules and publishes video to YouTube, Facebook, Instagram and TikTok. Each platform sits behind one adapter interface, OAuth tokens are encrypted at rest, and each channel is tracked separately so one failure doesn't block the rest.</p></article>
+        <article><h3>Advantec Industrial</h3><div class="meta">2024–26 · industrial QA system · PHP, MySQL</div><p>Took over the system that records pipe-bending jobs for an industrial fabricator. Added authentication, replaced an unsafe bulk-import path, and built tolerance, ovality and per-location operator features.</p></article>
+        <article><h3>Inside Retail network</h3><div class="meta">2017–20 · WordPress, Linux</div><p>Ran a retail-news publisher's main site and 50+ regional sites with 500k+ active users, including the servers, and built the plugin that syncs content across the network on a schedule.</p></article>
+        <article><h3>Procurement to inventory sync</h3><div class="meta">2023–24 · Laravel</div><p>Daily sync of purchase orders, vendors and products from Procurify into inFlow Inventory. One queued job per order, rate-limit aware, with a failure dashboard and emailed reports.</p></article>
       </div>
     </section>
 
@@ -493,11 +511,12 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     <section id="experience">
       <div class="head"><h2>Experience</h2><span class="label">11+ years</span></div>
       <table class="xp"><tbody>
-        <tr><td>2020 – now</td><td><b>Independent engineer</b> <span class="org">· Upwork Top Rated Plus</span><br>Vocatech, deploi.dev, Advantec Industrial and others.</td></tr>
+        <tr><td>2026 – now</td><td><b>CTO</b> <span class="org">· LayaCreative</span><br>Leads engineering for PlayInsight and the video publishing platform.</td></tr>
+        <tr><td>2020 – now</td><td><b>Senior software engineer, contract</b> <span class="org">· Upwork Top Rated Plus</span><br>Vocatech, deploi.dev, Advantec Industrial and others.</td></tr>
         <tr><td>2023 – now</td><td><b>Lead Full-Stack Developer</b> <span class="org">· Digital Consulting Ventures (Home Tech Geeks)</span><br>Booking flow, redesign, Cypress end-to-end suite. Angular, AWS Amplify.</td></tr>
         <tr><td>2022 – 2024</td><td><b>Lead Full-Stack Developer</b> <span class="org">· Nodoc Limited</span><br>BalloonApp backend.</td></tr>
         <tr><td>2017 – 2020</td><td><b>Lead Full-Stack Developer</b> <span class="org">· Responsive Pixel</span><br>Inside Retail, My Business Journey.</td></tr>
-        <tr><td>2017</td><td><b>Senior Laravel &amp; PHP Developer</b> <span class="org">· E-Signature</span><br>Inheadline news aggregator.</td></tr>
+        <tr><td>2017</td><td><b>Senior Laravel &amp; PHP Developer</b> <span class="org">· E-Signature</span><br>News aggregation platform with automated crawling and short summaries.</td></tr>
         <tr><td>2014 – 2016</td><td><b>WordPress &amp; Laravel Developer</b> <span class="org">· Best Nepal</span></td></tr>
       </tbody></table>
     </section>
@@ -510,6 +529,17 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
         <div><h3>Write the cause down</h3><p>My changelogs explain why a bug happened, not only that it was fixed. The next person, often me, needs that.</p></div>
         <div><h3>Own it past the merge</h3><p>Deploys, monitoring and the follow-up after launch are part of the job. I've run my own infrastructure on every recent project.</p></div>
         <div><h3>Say what I don't know</h3><p>If I haven't used a tool in production, I say so and explain how I'll get up to speed.</p></div>
+      </div>
+    </section>
+
+    <!-- ENGAGE -->
+    <section id="engage">
+      <div class="head"><h2>Work with me</h2><span class="label">how companies usually bring me in</span></div>
+      <div class="principles">
+        <div><h3>Technical lead or fractional CTO</h3><p>Architecture, hiring help, code review standards, CI/CD and release process for a team that needs senior direction without a full-time executive.</p></div>
+        <div><h3>Performance and reliability review</h3><p>Two weeks on your production system: trace the slow paths across frontend, API, database, cache and infrastructure, then fix the top issues or hand over a prioritised plan.</p></div>
+        <div><h3>AI features in production</h3><p>Vision or LLM features that run on real traffic, with queues, GPU or API cost control, evaluation and fallbacks, not only a demo notebook.</p></div>
+        <div><h3>Legacy takeover and modernisation</h3><p>Inherit a codebase nobody understands, make it reproducible with Docker and docs, upgrade it (for example PHP 7 to 8.3) and keep it running while it changes.</p></div>
       </div>
     </section>
 
@@ -537,7 +567,7 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
       </div>
     </section>
 
-    <footer>Sudip Limbu · Kathmandu · Hand-written HTML and CSS, no framework.</footer>
+    <footer>Sudip Limbu · Kathmandu, Nepal · UTC+5:45</footer>
   </main>
 </div>
 
@@ -550,6 +580,7 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     var next=cur==='dark'?'light':'dark';
     root.setAttribute('data-theme',next);
     try{localStorage.setItem('theme',next);}catch(e){}
+    if(window.__redrawDemo) window.__redrawDemo();
   }
   ['theme','theme2'].forEach(function(id){var b=document.getElementById(id); if(b) b.addEventListener('click',flip);});
 
@@ -566,6 +597,79 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     } else fallback();
   });
 
+
+  /* court calibration demo: 4-point homography between the court (metres) and the camera view */
+  var cam=document.getElementById('cam'), map=document.getElementById('map'), out=document.getElementById('readout');
+  if(cam&&map&&cam.getContext){
+    var W=6.1, L=13.4, NET=6.7;
+    var court=[[0,0],[W,0],[W,L],[0,L]];
+    var pts=[[.37,.2],[.63,.2],[.88,.9],[.12,.9]];
+    var drag=-1, hover=null, H=null, Hi=null;
+    function tok(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+    function solve(src,dst){
+      var A=[],b=[],i,j,k;
+      for(i=0;i<4;i++){var x=src[i][0],y=src[i][1],u=dst[i][0],v=dst[i][1];
+        A.push([x,y,1,0,0,0,-u*x,-u*y]); b.push(u);
+        A.push([0,0,0,x,y,1,-v*x,-v*y]); b.push(v);}
+      for(i=0;i<8;i++){var m=i;for(j=i+1;j<8;j++) if(Math.abs(A[j][i])>Math.abs(A[m][i])) m=j;
+        var t=A[i];A[i]=A[m];A[m]=t; t=b[i];b[i]=b[m];b[m]=t;
+        if(Math.abs(A[i][i])<1e-12) return null;
+        for(j=i+1;j<8;j++){var f=A[j][i]/A[i][i]; for(k=i;k<8;k++) A[j][k]-=f*A[i][k]; b[j]-=f*b[i];}}
+      var h=new Array(8);
+      for(i=7;i>=0;i--){var sum=b[i];for(k=i+1;k<8;k++) sum-=A[i][k]*h[k]; h[i]=sum/A[i][i];}
+      return [h[0],h[1],h[2],h[3],h[4],h[5],h[6],h[7],1];
+    }
+    function inv(m){
+      var a=m[0],b=m[1],c=m[2],d=m[3],e=m[4],f=m[5],g=m[6],h=m[7],i=m[8];
+      var A=e*i-f*h,B=-(d*i-f*g),C=d*h-e*g,det=a*A+b*B+c*C; if(Math.abs(det)<1e-12) return null;
+      return [A/det,-(b*i-c*h)/det,(b*f-c*e)/det,B/det,(a*i-c*g)/det,-(a*f-c*d)/det,C/det,-(a*h-b*g)/det,(a*e-b*d)/det];
+    }
+    function ap(m,x,y){var w=m[6]*x+m[7]*y+m[8]; return [(m[0]*x+m[1]*y+m[2])/w,(m[3]*x+m[4]*y+m[5])/w];}
+    var lines=[[0,0,W,0],[W,0,W,L],[W,L,0,L],[0,L,0,0],[.46,0,.46,L],[W-.46,0,W-.46,L],
+      [0,.76,W,.76],[0,L-.76,W,L-.76],[0,NET-1.98,W,NET-1.98],[0,NET+1.98,W,NET+1.98],
+      [W/2,0,W/2,NET-1.98],[W/2,NET+1.98,W/2,L]];
+    function size(c){var r=window.devicePixelRatio||1, w=c.clientWidth, h=c.clientHeight; if(c.width!==Math.round(w*r)){c.width=Math.round(w*r);c.height=Math.round(h*r);} return {w:w,h:h,r:r};}
+    function draw(){
+      var ink=tok('--ink'), mut=tok('--muted'), acc=tok('--accent'), mark=tok('--mark'), line=tok('--line');
+      var s1=size(cam), g=cam.getContext('2d'); g.setTransform(s1.r,0,0,s1.r,0,0); g.clearRect(0,0,s1.w,s1.h);
+      var img=pts.map(function(p){return [p[0]*s1.w,p[1]*s1.h];});
+      H=solve(court,img); Hi=H&&inv(H);
+      if(H){
+        g.beginPath(); img.forEach(function(p,i){i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]);}); g.closePath();
+        g.globalAlpha=.08; g.fillStyle=acc; g.fill(); g.globalAlpha=1;
+        g.strokeStyle=ink; g.lineWidth=1.3;
+        lines.forEach(function(l){var a=ap(H,l[0],l[1]),b=ap(H,l[2],l[3]); g.beginPath(); g.moveTo(a[0],a[1]); g.lineTo(b[0],b[1]); g.stroke();});
+        var n1=ap(H,-.3,NET),n2=ap(H,W+.3,NET); g.strokeStyle=mark; g.lineWidth=2.2; g.beginPath(); g.moveTo(n1[0],n1[1]); g.lineTo(n2[0],n2[1]); g.stroke();
+      }
+      img.forEach(function(p,i){g.beginPath(); g.arc(p[0],p[1],drag===i?9:7,0,7); g.fillStyle=acc; g.fill(); g.lineWidth=2; g.strokeStyle=tok('--paper'); g.stroke();});
+      if(hover){g.beginPath(); g.arc(hover.px,hover.py,5,0,7); g.fillStyle=mark; g.fill();}
+      g.fillStyle=mut; g.font='12px '+tok('--mono'); g.fillText('camera view, drag the corners',10,18);
+
+      var s2=size(map), m=map.getContext('2d'); m.setTransform(s2.r,0,0,s2.r,0,0); m.clearRect(0,0,s2.w,s2.h);
+      var pad=10, k=Math.min((s2.w-2*pad)/W,(s2.h-2*pad)/L), ox=(s2.w-W*k)/2, oy=(s2.h-L*k)/2;
+      m.strokeStyle=ink; m.lineWidth=1;
+      lines.forEach(function(l){m.beginPath(); m.moveTo(ox+l[0]*k,oy+l[1]*k); m.lineTo(ox+l[2]*k,oy+l[3]*k); m.stroke();});
+      m.strokeStyle=mark; m.lineWidth=2; m.beginPath(); m.moveTo(ox-3,oy+NET*k); m.lineTo(ox+W*k+3,oy+NET*k); m.stroke();
+      if(hover&&hover.inside){m.beginPath(); m.arc(ox+hover.x*k,oy+hover.y*k,5,0,7); m.fillStyle=mark; m.fill();}
+    }
+    function pos(e){var r=cam.getBoundingClientRect(); return [(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height,e.clientX-r.left,e.clientY-r.top];}
+    cam.addEventListener('pointerdown',function(e){var p=pos(e),r=cam.getBoundingClientRect(),best=-1,bd=24;
+      pts.forEach(function(q,i){var d=Math.hypot((q[0]-p[0])*r.width,(q[1]-p[1])*r.height); if(d<bd){bd=d;best=i;}});
+      if(best>=0){drag=best; cam.setPointerCapture(e.pointerId); draw();}});
+    cam.addEventListener('pointermove',function(e){var p=pos(e);
+      if(drag>=0){pts[drag]=[Math.min(.98,Math.max(.02,p[0])),Math.min(.98,Math.max(.02,p[1]))]; hover=null; out.textContent='Solving homography…'; draw(); return;}
+      if(!Hi) return; var c=ap(Hi,p[2],p[3]), inside=c[0]>=0&&c[0]<=W&&c[1]>=0&&c[1]<=L;
+      hover={px:p[2],py:p[3],x:c[0],y:c[1],inside:inside};
+      out.textContent=inside?('x '+c[0].toFixed(2)+' m · y '+c[1].toFixed(2)+' m · '+Math.abs(c[1]-NET).toFixed(2)+' m from net, '+(c[1]>NET?'near':'far')+' half'):'Outside the court';
+      draw();});
+    function end(){if(drag>=0){drag=-1; out.textContent='Move over the court'; draw();}}
+    cam.addEventListener('pointerup',end); cam.addEventListener('pointercancel',end);
+    cam.addEventListener('pointerleave',function(){if(drag<0){hover=null; out.textContent='Move over the court'; draw();}});
+    window.addEventListener('resize',draw);
+    if(window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+    window.__redrawDemo=draw;
+    draw();
+  }
   var links=[].slice.call(document.querySelectorAll('#railnav a'));
   if('IntersectionObserver' in window){
     var map={}; links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
