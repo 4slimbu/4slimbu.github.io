@@ -218,7 +218,7 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     <header class="hero">
       <div class="label">Full-stack engineer · Kathmandu, Nepal</div>
       <h1>Sudip Limbu<span>I own production systems end to end.</span></h1>
-      <p class="thesis">I've built software professionally for 11 years: APIs, web and mobile apps, data pipelines and, lately, computer vision. Most of my work has been taking a system from an idea or an inherited codebase to something stable in production, and then finding out why it is slow or wrong. I studied physics, so I measure before I change anything.</p>
+      <p class="thesis">11 years building APIs, web and mobile apps, data pipelines and, lately, computer vision. I take systems from idea or inherited codebase to stable production. I studied physics, so I measure before I change anything.</p>
       <dl class="status">
         <dt>Languages</dt><dd>Python, TypeScript, PHP, SQL</dd>
         <dt>Now</dt><dd>Freelance lead engineer on PlayInsight, an AI video analytics platform</dd>
@@ -249,108 +249,31 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     <!-- CASE 1 -->
     <section class="case" id="playinsight">
       <div class="kicker"><span>Freelance</span><span>Lead engineer</span><span>2026 – present</span></div>
-      <h2>PlayInsight: turning match footage into player analytics</h2>
-      <p class="lede">I lead engineering on PlayInsight, a video analytics platform for badminton. A coach or player uploads a match filmed on one phone, or on up to four phones around the court. PlayInsight finds the players, the shuttle and the rackets, reconstructs the court in 3D, splits the match into rallies, classifies every stroke, and reports distance, speed and shot mix for each player.</p>
+      <h2>PlayInsight: AI match analytics for badminton</h2>
+      <p class="lede">Players and coaches upload match video from one or more phones and get rally-by-rally analytics: movement, shuttle tracking and stroke breakdowns. I lead the engineering, from the computer-vision models to the cloud platform.</p>
 
       <figure>
         <div class="scroll">
-          <svg viewBox="0 0 760 330" role="img" aria-labelledby="pi-t">
+          <svg viewBox="0 0 760 300" role="img" aria-labelledby="pi-t">
             <title id="pi-t">PlayInsight production architecture</title>
             <defs><marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs>
-
-            <rect class="bx" x="20" y="24" width="170" height="74" rx="5"/>
-            <text class="t" x="34" y="48">Web app</text>
-            <text class="s" x="34" y="68">Next.js on Vercel</text>
-            <text class="s" x="34" y="84">in-browser queries</text>
-
-            <rect class="bx hl" x="290" y="24" width="190" height="74" rx="5"/>
-            <text class="t" x="304" y="48">API service</text>
-            <text class="s" x="304" y="68">FastAPI · containers</text>
-            <text class="s" x="304" y="84">JWT · roles</text>
-
-            <rect class="bx" x="570" y="24" width="170" height="74" rx="5"/>
-            <text class="t" x="584" y="48">PostgreSQL</text>
-            <text class="s" x="584" y="68">managed · migrations</text>
-            <text class="s" x="584" y="84">users · videos · jobs</text>
-
-            <rect class="bx" x="20" y="134" width="170" height="74" rx="5"/>
-            <text class="t" x="34" y="158">Object storage + CDN</text>
-            <text class="s" x="34" y="178">S3-compatible · signed URLs</text>
-            <text class="s" x="34" y="194">video · previews · results</text>
-
-            <rect class="bx" x="290" y="134" width="190" height="74" rx="5"/>
-            <text class="t" x="304" y="158">Job queue</text>
-            <text class="s" x="304" y="178">Redis · retry · cancel</text>
-            <text class="s" x="304" y="194">progress and ETA events</text>
-
-            <rect class="bx hl" x="570" y="124" width="170" height="94" rx="5"/>
-            <text class="t" x="584" y="148">GPU workers</text>
-            <text class="s" x="584" y="168">serverless (Modal)</text>
-            <text class="s" x="584" y="184">autoscale, idle at zero</text>
-            <text class="s" x="584" y="200">custom YOLOv8 models</text>
-
-            <rect class="bx" x="290" y="246" width="450" height="62" rx="5"/>
-            <text class="t" x="304" y="270">Vision pipeline (per video)</text>
-            <text class="s" x="304" y="290">detect · track · pose · camera solve · rallies · stats</text>
-
-            <path class="ar" d="M190 61 H286" marker-end="url(#ah1)" marker-start="url(#ah1)"/>
-            <text class="al" x="212" y="54">HTTPS</text>
-            <path class="ar" d="M480 61 H566" marker-end="url(#ah1)"/>
-            <path class="ar" d="M105 98 V130" marker-end="url(#ah1)" marker-start="url(#ah1)"/>
-            <text class="al" x="112" y="120">upload / fetch</text>
-            <path class="ar" d="M385 98 V130" marker-end="url(#ah1)"/>
-            <text class="al" x="392" y="120">enqueue</text>
-            <path class="ar" d="M480 171 H566" marker-end="url(#ah1)"/>
-            <text class="al" x="500" y="164">dispatch</text>
-            <path class="ar" d="M655 218 V242" marker-end="url(#ah1)"/>
-            <path class="ar" d="M290 277 H105 V212" marker-end="url(#ah1)"/>
-            <text class="al" x="150" y="270">write results</text>
+            <rect class="bx" x="20" y="24" width="170" height="62" rx="5"/><text class="t" x="34" y="50">Web app</text><text class="s" x="34" y="70">Next.js on Vercel</text>
+            <rect class="bx hl" x="290" y="24" width="190" height="62" rx="5"/><text class="t" x="304" y="50">API</text><text class="s" x="304" y="70">FastAPI · containers</text>
+            <rect class="bx" x="570" y="24" width="170" height="62" rx="5"/><text class="t" x="584" y="50">PostgreSQL</text><text class="s" x="584" y="70">managed</text>
+            <rect class="bx" x="20" y="124" width="170" height="62" rx="5"/><text class="t" x="34" y="150">Storage + CDN</text><text class="s" x="34" y="170">video and results</text>
+            <rect class="bx" x="290" y="124" width="190" height="62" rx="5"/><text class="t" x="304" y="150">Job queue</text><text class="s" x="304" y="170">Redis</text>
+            <rect class="bx hl" x="570" y="124" width="170" height="62" rx="5"/><text class="t" x="584" y="150">GPU workers</text><text class="s" x="584" y="170">serverless, autoscaling</text>
+            <rect class="bx" x="290" y="222" width="450" height="58" rx="5"/><text class="t" x="304" y="246">Vision pipeline</text><text class="s" x="304" y="266">detection · tracking · pose · 3D court · rallies · strokes</text>
+            <path class="ar" d="M190 55 H286" marker-end="url(#ah1)" marker-start="url(#ah1)"/>
+            <path class="ar" d="M480 55 H566" marker-end="url(#ah1)"/>
+            <path class="ar" d="M105 86 V120" marker-end="url(#ah1)" marker-start="url(#ah1)"/>
+            <path class="ar" d="M385 86 V120" marker-end="url(#ah1)"/>
+            <path class="ar" d="M480 155 H566" marker-end="url(#ah1)"/>
+            <path class="ar" d="M655 186 V218" marker-end="url(#ah1)"/>
+            <path class="ar" d="M290 251 H105 V190" marker-end="url(#ah1)"/>
           </svg>
         </div>
-        <figcaption>Per-frame analysis never goes through the API. Workers write one SQLite file per video to storage; the browser fetches it once from the CDN and queries it locally while the video plays.</figcaption>
-      </figure>
-
-
-      <figure>
-        <div class="scroll">
-          <svg viewBox="0 0 760 250" role="img" aria-labelledby="mc-t">
-            <title id="mc-t">Multi-camera fusion: cameras are synced by audio, analysed independently, then triangulated</title>
-            <defs><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs>
-            <rect class="bx hl" x="20" y="20" width="150" height="56" rx="5"/><text class="t" x="34" y="44">Camera A</text><text class="s" x="34" y="63">primary timeline</text>
-            <rect class="bx" x="20" y="97" width="150" height="56" rx="5"/><text class="t" x="34" y="121">Camera B</text><text class="s" x="34" y="140">opposite corner</text>
-            <rect class="bx" x="20" y="174" width="150" height="56" rx="5"/><text class="t" x="34" y="198">Cameras C, D</text><text class="s" x="34" y="217">optional</text>
-
-            <rect class="bx" x="210" y="70" width="160" height="110" rx="5"/>
-            <text class="t" x="224" y="94">Audio sync</text>
-            <text class="s" x="224" y="116">filtered hit sounds</text>
-            <text class="s" x="224" y="134">cross-correlation</text>
-            <text class="s" x="224" y="152">offset + confidence</text>
-            <text class="s" x="224" y="170">manual fallback</text>
-
-            <rect class="bx" x="405" y="70" width="160" height="110" rx="5"/>
-            <text class="t" x="419" y="94">Per-camera analysis</text>
-            <text class="s" x="419" y="116">unchanged pipeline</text>
-            <text class="s" x="419" y="134">players in court-side</text>
-            <text class="s" x="419" y="152">slots 1–4</text>
-            <text class="s" x="419" y="170">own 3D camera pose</text>
-
-            <rect class="bx hl" x="600" y="40" width="140" height="170" rx="5"/>
-            <text class="t" x="614" y="64">Fusion</text>
-            <text class="s" x="614" y="86">DLT triangulation</text>
-            <text class="s" x="614" y="104">drop a camera if its</text>
-            <text class="s" x="614" y="122">reprojection > 40 px</text>
-            <text class="s" x="614" y="144">fill occlusions</text>
-            <text class="s" x="614" y="162">from other views</text>
-            <text class="s" x="614" y="184">3D shuttle height</text>
-
-            <path class="ar" d="M170 48 H190 V110 H206" marker-end="url(#ah3)"/>
-            <path class="ar" d="M170 125 H206" marker-end="url(#ah3)"/>
-            <path class="ar" d="M170 202 H190 V140 H206" marker-end="url(#ah3)"/>
-            <path class="ar" d="M370 125 H401" marker-end="url(#ah3)"/>
-            <path class="ar" d="M565 125 H596" marker-end="url(#ah3)"/>
-          </svg>
-        </div>
-        <figcaption>Multi-camera fusion. Because player slots are assigned by court side, camera A's player 1 is camera B's player 1, so no re-identification step is needed. The fused result uses the same file format as a single camera, so the viewer works unchanged.</figcaption>
+        <figcaption>Production architecture. GPU capacity follows uploads and costs nothing when idle.</figcaption>
       </figure>
 
       <figure class="demo" aria-labelledby="demo-t">
@@ -359,153 +282,113 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
           <canvas id="cam" aria-label="Camera view of a badminton court. Drag the four corner handles."></canvas>
           <canvas id="map" aria-label="Top-down view of the court in metres"></canvas>
         </div>
-        <figcaption>Drag the four corners to match a camera angle, then point at the court. Your browser solves a 3×3 homography and maps the point onto the real 13.40 × 6.10 m doubles court. PlayInsight does this for every player and shuttle position in every frame.</figcaption>
+        <figcaption>Drag the corners to match a camera angle, then point at the court. Your browser maps the point onto the real 13.40 × 6.10 m court, the same geometry PlayInsight applies to every player and shuttle position.</figcaption>
       </figure>
 
       <div class="col">
-        <h3>What I built</h3>
+        <h3>What I did</h3>
         <ul>
-          <li><b>Custom models.</b> Shuttle detection and 5-keypoint racket pose models trained on annotated match footage, alongside YOLOv8-pose and RTMPose for players.</li>
-          <li><b>Court geometry.</b> Calibration solves the full 3D camera pose from court lines and net posts, then derives the floor homography and net plane from it. Outlier points are rejected and per-point reprojection error is shown to the user.</li>
-          <li><b>Multi-camera tracking.</b> Two to four phones around the court are synced automatically by matching the sound of racket hits, then every player and shuttle position is triangulated from all cameras that see it. When a player is hidden behind their partner or the net post from one angle, another camera supplies the position, and the shuttle gets a true 3D height that one camera can't measure.</li>
-          <li><b>Player identity.</b> Players are assigned to fixed court-side slots. When two partners overlap and separate, jersey colour histograms decide who is who, so stats stay attached to the right person.</li>
-          <li><b>Stroke classification.</b> Each hit is detected from a wrist-velocity peak and classified as smash, drop, clear, lift, net shot or drive from wrist height relative to shoulders and hips and the swing direction. Players also get per-frame stances: ready, lunge, jump, reach, crouch.</li>
-          <li><b>Rally detection.</b> A state machine with four start rules and five end rules (shuttle above the net, feet still, bounce, timeouts). Every decision is stored with its reason, so a wrong call can be replayed and explained.</li>
-          <li><b>Platform.</b> Multi-GB uploads, match sessions that group several camera angles, a GPU job queue with live progress, cancel and retry, highlight video export with overlays rendered in, player profiles that track stats across matches, Stripe subscriptions with plan limits, and role-based permissions.</li>
-          <li><b>Viewer.</b> Ten overlay layers drawn on canvas (skeleton, shuttle trail, heatmap, minimap and more), follow cam, frame stepping, and a 3D replay built from MotionBERT pose lifting.</li>
+          <li>Trained custom detection models for the shuttle and racket and combined them with pose estimation for players.</li>
+          <li>Built multi-camera support: footage from up to four phones is synced and combined, so a player hidden from one angle is still tracked and the shuttle is located in 3D.</li>
+          <li>Built 3D court calibration, rally detection and stroke classification (smash, drop, clear, lift, net, drive).</li>
+          <li>Built the SaaS around it: uploads, a GPU job queue, a match viewer with analytics overlays, highlight export, player profiles and subscriptions.</li>
         </ul>
 
         <h3>Decisions</h3>
         <div class="adrs">
-          <div class="adr"><span class="label">Decision</span><h4>Serverless GPU workers behind a queue</h4><p>Analysis runs on autoscaling GPU workers fed by a Redis queue. <span class="why">The load is bursty: a match needs minutes of GPU time, then nothing. Scaling to zero keeps cost proportional to use, and the queue keeps the API fast and makes jobs cancellable and retryable.</span></p></div>
-          <div class="adr"><span class="label">Decision</span><h4>Fuse cameras after analysis, not inside the tracker</h4><p>Each camera runs the normal single-camera pipeline; a separate fusion step combines the results. <span class="why">Trackers and the rally state machine are stateful per video stream. Making them multi-view aware would have meant rewriting them. Fusing afterwards kept them untouched, and the output keeps the same format, so the viewer needed no changes.</span></p></div>
-          <div class="adr"><span class="label">Decision</span><h4>Sync cameras by the sound of the shuttle</h4><p>Offsets come from cross-correlating band-passed energy envelopes of each camera's audio. <span class="why">Raw waveform correlation failed on real footage (confidence 0.01–0.03) because rallies are full of near-identical hit sounds. Filtering to impact frequencies gave confidence of 0.18–0.84 with one dominant peak, and anything below the threshold falls back to a manual scrubber.</span></p></div>
-          <div class="adr"><span class="label">Decision</span><h4>Ship results as a SQLite file instead of an API</h4><p>Each analysis is one <span class="mono">.analysis.db</span> in object storage. <span class="why">The viewer reads thousands of rows per second while someone scrubs the video. Through REST that is slow and expensive; a file cached at the CDN and queried in the browser is fast and costs nothing per request.</span></p></div>
-          <div class="adr"><span class="label">Decision</span><h4>Choose the 3D model by measurement</h4><p>We compared MotionBERT's mesh and pose models against the real 2D input. <span class="why">The mesh model correlated 0.26 with the input's X axis, the pose model 0.9988. We shipped the pose model and documented the remaining torso-tilt bias as a single-camera limit, with multi-camera triangulation as the fix.</span></p></div>
+          <div class="adr"><span class="label">Decision</span><h4>Serverless GPU behind a queue</h4><p>Analysis runs on autoscaling GPU workers. <span class="why">Load is bursty, so cost follows usage, and the queue keeps the API fast and jobs retryable.</span></p></div>
+          <div class="adr"><span class="label">Decision</span><h4>Combine cameras after analysis</h4><p>Each camera is analysed on its own, then merged. <span class="why">The single-camera pipeline stayed unchanged, and the viewer works the same for one camera or four.</span></p></div>
         </div>
 
         <div class="facts">
-          <div><b>0.885</b><span>mAP50, in-house shuttle detector</span></div>
-          <div><b>2–4</b><span>cameras fused per match, synced by audio</span></div>
-          <div><b>6</b><span>stroke types classified per hit</span></div>
+          <div><b>0.885</b><span>mAP50, custom shuttle detector</span></div>
+          <div><b>4</b><span>cameras per match, synced automatically</span></div>
+          <div><b>6</b><span>stroke types classified</span></div>
         </div>
-        <p class="stack"><b>Stack</b> Python · YOLOv8 · RTMPose · MotionBERT · OpenCV · NumPy · SciPy · FFmpeg · FastAPI · SQLAlchemy · PostgreSQL · Redis · S3 · Modal · Stripe · Next.js · TypeScript · Vercel · pytest</p>
+        <p class="stack"><b>Stack</b> Python · PyTorch/YOLO · OpenCV · FastAPI · PostgreSQL · Redis · Next.js · TypeScript · Stripe</p>
       </div>
     </section>
 
     <!-- CASE 2 -->
     <section class="case" id="vocatech">
-      <div class="kicker"><span>Client: Vocatech (US business phone provider)</span><span>Oct 2024 – 2026</span><span>Main engineer, 6 products, ~940 commits</span></div>
+      <div class="kicker"><span>Client: Vocatech (US business phone provider)</span><span>Oct 2024 – 2026</span><span>Main engineer</span></div>
       <h2>Vocatech: taking over a telecom platform and making it reliable</h2>
-      <p class="lede">Vocatech sells business phone service built on Cisco BroadWorks. I inherited six codebases from earlier developers, some only ever edited on the server, and became the engineer responsible for all of them.</p>
+      <p class="lede">I took over six products from earlier developers and became the engineer responsible for all of them: business texting, the phone-system admin portal, a public API and the website.</p>
 
       <figure>
         <div class="scroll">
-          <svg viewBox="0 0 760 300" role="img" aria-labelledby="vt-t">
-            <title id="vt-t">TextDock message flow between customers, carriers, TextDock, Webex, email and the 10DLC registry</title>
+          <svg viewBox="0 0 760 196" role="img" aria-labelledby="vt-t">
+            <title id="vt-t">TextDock connects customer SMS and WhatsApp to Webex and email</title>
             <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs>
-            <rect class="bx" x="20" y="30" width="130" height="52" rx="5"/>
-            <text class="t" x="34" y="52">Customer</text><text class="s" x="34" y="70">SMS / MMS</text>
-            <rect class="bx" x="20" y="120" width="130" height="52" rx="5"/>
-            <text class="t" x="34" y="142">Customer</text><text class="s" x="34" y="160">WhatsApp</text>
-
-            <rect class="bx" x="185" y="30" width="125" height="52" rx="5"/>
-            <text class="t" x="199" y="52">Bandwidth</text><text class="s" x="199" y="70">carrier API</text>
-            <rect class="bx" x="185" y="120" width="125" height="52" rx="5"/>
-            <text class="t" x="199" y="142">Twilio / Meta</text><text class="s" x="199" y="160">WhatsApp API</text>
-
-            <rect class="bx hl" x="350" y="30" width="170" height="142" rx="5"/>
-            <text class="t" x="364" y="54">TextDock</text>
-            <text class="s" x="364" y="74">PHP 8.2 · MySQL</text>
-            <text class="s" x="364" y="96">routes each number</text>
-            <text class="s" x="364" y="112">to a Webex space</text>
-            <text class="s" x="364" y="134">opt-in / opt-out</text>
-            <text class="s" x="364" y="150">compliance bounce-backs</text>
-
-            <rect class="bx" x="560" y="30" width="180" height="62" rx="5"/>
-            <text class="t" x="574" y="52">Webex spaces</text><text class="s" x="574" y="70">embedded app · bot</text><text class="s" x="574" y="84">webhooks → local DB</text>
-            <rect class="bx" x="560" y="112" width="180" height="60" rx="5"/>
-            <text class="t" x="574" y="134">Email</text><text class="s" x="574" y="152">Postmark inbound</text>
-
-            <rect class="bx" x="350" y="222" width="170" height="56" rx="5"/>
-            <text class="t" x="364" y="244">Campaign Registry</text><text class="s" x="364" y="262">10DLC brands · campaigns</text>
-            <rect class="bx" x="560" y="222" width="180" height="56" rx="5"/>
-            <text class="t" x="574" y="244">Admin compliance UI</text><text class="s" x="574" y="262">status sync · webhooks</text>
-
+            <rect class="bx" x="20" y="30" width="130" height="52" rx="5"/><text class="t" x="34" y="52">Customer</text><text class="s" x="34" y="70">SMS / MMS</text>
+            <rect class="bx" x="20" y="120" width="130" height="52" rx="5"/><text class="t" x="34" y="142">Customer</text><text class="s" x="34" y="160">WhatsApp</text>
+            <rect class="bx" x="185" y="30" width="125" height="52" rx="5"/><text class="t" x="199" y="52">Bandwidth</text><text class="s" x="199" y="70">carrier</text>
+            <rect class="bx" x="185" y="120" width="125" height="52" rx="5"/><text class="t" x="199" y="142">Twilio / Meta</text><text class="s" x="199" y="160">WhatsApp</text>
+            <rect class="bx hl" x="350" y="30" width="170" height="142" rx="5"/><text class="t" x="364" y="56">TextDock</text><text class="s" x="364" y="78">routing</text><text class="s" x="364" y="96">compliance</text>
+            <rect class="bx" x="560" y="30" width="180" height="52" rx="5"/><text class="t" x="574" y="52">Webex</text><text class="s" x="574" y="70">support team spaces</text>
+            <rect class="bx" x="560" y="120" width="180" height="52" rx="5"/><text class="t" x="574" y="142">Email</text><text class="s" x="574" y="160">inbound and replies</text>
             <path class="ar" d="M150 56 H181" marker-end="url(#ah2)" marker-start="url(#ah2)"/>
             <path class="ar" d="M150 146 H181" marker-end="url(#ah2)" marker-start="url(#ah2)"/>
             <path class="ar" d="M310 56 H346" marker-end="url(#ah2)" marker-start="url(#ah2)"/>
             <path class="ar" d="M310 146 H346" marker-end="url(#ah2)" marker-start="url(#ah2)"/>
-            <path class="ar" d="M520 61 H556" marker-end="url(#ah2)" marker-start="url(#ah2)"/>
-            <path class="ar" d="M520 142 H556" marker-end="url(#ah2)" marker-start="url(#ah2)"/>
-            <path class="ar" d="M435 172 V218" marker-end="url(#ah2)" marker-start="url(#ah2)"/>
-            <path class="ar" d="M520 250 H556" marker-end="url(#ah2)" marker-start="url(#ah2)"/>
+            <path class="ar" d="M520 56 H556" marker-end="url(#ah2)" marker-start="url(#ah2)"/>
+            <path class="ar" d="M520 146 H556" marker-end="url(#ah2)" marker-start="url(#ah2)"/>
           </svg>
         </div>
         <figcaption>TextDock lets a support team text customers from Webex or email using the company's business number.</figcaption>
       </figure>
 
       <div class="col">
-        <h3>The systems</h3>
+        <h3>What I did</h3>
         <ul>
-          <li><b>TextDock</b> (344 commits): the Webex embedded app, automatic per-customer spaces, WhatsApp merged into the same routing, and a full 10DLC compliance workflow with The Campaign Registry and Bandwidth.</li>
-          <li><b>Admin portal</b> (276 commits in a 6-developer repo): BroadWorks PBX management. I extracted one reusable scheduling engine and rolled it out to more than 12 call features. I also added bulk extension creation, contact sync over API, CSV and SFTP, and call reports with stored OpenAI transcripts.</li>
-          <li><b>Public REST API</b> (built from scratch): Slim 4 on Cloud Run with OpenAPI docs, token auth, AES-encrypted API keys, call and message reports, and outbound webhooks dispatched by Cloud Scheduler.</li>
-          <li><b>Website and internal tools:</b> marketing site performance and SEO, visitor attribution, and a LinkedIn engagement tool that drafts comments with Gemini.</li>
+          <li><b>TextDock:</b> extended it to WhatsApp and built the 10DLC carrier-compliance workflow.</li>
+          <li><b>Admin portal:</b> rebuilt call scheduling as one shared engine used by 12+ call features, and added bulk provisioning and AI call transcripts.</li>
+          <li><b>Public REST API:</b> designed and launched it on Google Cloud Run, with documented endpoints, encrypted API keys and outbound webhooks.</li>
+          <li><b>Foundations:</b> made every codebase reproducible and safer with Docker, documentation, versioned releases and locked-down secrets.</li>
         </ul>
 
         <h3>Decisions</h3>
         <div class="adrs">
-          <div class="adr"><span class="label">Decision</span><h4>Sync Webex by webhook instead of polling</h4><p>Membership and message events update local tables; the UI reads from MySQL. <span class="why">The app had called Webex once per room on every load, so it slowed down and hit rate limits as customers added spaces.</span></p></div>
-          <div class="adr"><span class="label">Decision</span><h4>Replace session auth with tokens in the embedded app</h4><p>Short-lived tokens with rotation that is safe under parallel calls. <span class="why">Sessions expired mid-use inside the Webex embedded app and broke when users switched accounts in the same app.</span></p></div>
-          <div class="adr"><span class="label">Decision</span><h4>One scheduling engine instead of a dozen copies</h4><p>Time and holiday schedules with recurrence became one service used by every call feature. <span class="why">Each feature had its own copy of the schedule UI and save logic, so every schedule bug had to be fixed page by page.</span></p></div>
-          <div class="adr"><span class="label">Decision</span><h4>Batch webhook delivery with concurrent HTTP pools</h4><p>The dispatcher sends to subscribers in parallel through Guzzle pools, triggered by Cloud Scheduler and tracked in delivery tables. <span class="why">With sequential delivery, every new subscriber made each run longer.</span></p></div>
+          <div class="adr"><span class="label">Decision</span><h4>Event-driven sync instead of polling</h4><p>Webex changes arrive by webhook and are read locally. <span class="why">Polling every room on each load was slow and hit rate limits as customers grew.</span></p></div>
+          <div class="adr"><span class="label">Decision</span><h4>One scheduling engine instead of a dozen copies</h4><p>Every call feature uses the same schedule service. <span class="why">Duplicated logic meant every bug had to be fixed page by page.</span></p></div>
         </div>
-
-        <h3>Taking over safely</h3>
-        <p>The first commit in several of these repos is "latest code from server". Before changing behaviour I added Docker for local development, setup docs, a changelog with semantic versions, git hooks for cache busting, and access rules that keep logs, SQL dumps and credential files out of the web root.</p>
 
         <div class="facts">
-          <div><b>~940</b><span>commits across 6 repos in ~17 months</span></div>
-          <div><b>12+</b><span>call features moved onto one schedule engine</span></div>
+          <div><b>6</b><span>products owned end to end</span></div>
+          <div><b>12+</b><span>call features on one schedule engine</span></div>
           <div><b>2,700+</b><span>hours on the engagement</span></div>
         </div>
-        <p class="stack"><b>Stack</b> PHP 8.2 · Slim 4 · PHP-DI · MySQL · jQuery · Bootstrap 5 · Cisco BroadWorks · Webex · Bandwidth · The Campaign Registry · Twilio · Postmark · OpenAI · Gemini · GCP Cloud Run · Cloud Build · Cloud Scheduler · PHPUnit · PHPStan · Docker</p>
+        <p class="stack"><b>Stack</b> PHP 8 · Slim · MySQL · JavaScript · Cisco BroadWorks · Webex · Bandwidth · Twilio · OpenAI · Google Cloud</p>
       </div>
     </section>
 
     <!-- CASE 3 -->
     <section class="case" id="sync">
-      <div class="kicker"><span>Client: deploi.dev (Canada) for StickerYou / PromotedYou</span><span>2023 – Aug 2026</span><span>Maintainer, then full rewrite</span></div>
-      <h2>Promoted You Sync: stopping a product feed from silently losing data</h2>
-      <p class="lede">Product data lives in a Google Sheet, prices come from the StickerYou API, and the merged catalogue goes to three distributor platforms: ASI, OneSource and Distributor Central. The original code was hard to change, and distributors sometimes lost fields nobody had touched.</p>
+      <div class="kicker"><span>Client: deploi.dev (Canada)</span><span>2023 – 2026</span><span>Maintainer, then rewrite</span></div>
+      <h2>Promoted You Sync: a product feed that stopped losing data</h2>
+      <p class="lede">Syncs a promotional-products catalogue from Google Sheets and a live pricing API to three distributor platforms.</p>
       <div class="col">
-        <h3>What I changed</h3>
         <ul>
-          <li><b>Found the data loss.</b> ASI's update endpoint replaces the whole product, so any field the sync didn't send was erased. I changed every write to read the current record first and merge (GET before POST), and added a check that the merge never drops real ASI data.</li>
-          <li><b>Rebuilt around channels.</b> Each destination is a self-contained plugin with its own validation, token handling and export rules, on a shared domain model with unit tests. Adding a distributor no longer touches the others.</li>
-          <li><b>Made failures traceable.</b> Every export or pricing error points back to the product that caused it. OneSource categories are checked against its approved list before sending. Products priced in several sizes became one SKU with several price grids.</li>
-          <li><b>Upgraded the main site</b> from PHP 7.2 to 8.3 with a written regression checklist covering quotes, PDFs, auth and emails.</li>
+          <li>Found why distributors kept losing fields: their API replaced whole products. Every write now merges with the live record first.</li>
+          <li>Rebuilt the sync as one tested plugin per distributor, so each channel can change on its own.</li>
+          <li>Upgraded the client's main site from PHP 7.2 to 8.3.</li>
         </ul>
-        <p class="stack"><b>Stack</b> PHP 8 · Slim · DI container · Google Sheets API · ASI · OneSource · Distributor Central · PHPUnit</p>
+        <p class="stack"><b>Stack</b> PHP 8 · Google Sheets API · distributor APIs · PHPUnit</p>
       </div>
     </section>
 
     <!-- CASE 4 -->
     <section class="case" id="balloon">
-      <div class="kicker"><span>Nodoc Limited</span><span>May 2022 – Apr 2024</span><span>Lead full-stack developer, sole backend engineer</span></div>
-      <h2>BalloonApp: a wallet API where parents pay kids for chores</h2>
-      <p class="lede">A family app that teaches children about money. Parents fund wallets, set allowances and recurring chores, and children save toward goals.</p>
+      <div class="kicker"><span>Nodoc Limited</span><span>2022 – 2024</span><span>Lead full-stack developer</span></div>
+      <h2>BalloonApp: a family wallet that teaches kids about money</h2>
+      <p class="lede">Parents fund wallets, set allowances and chores, and children save toward goals.</p>
       <div class="col">
-        <h3>What I built</h3>
         <ul>
-          <li>The whole NestJS API: wallets and history, saving goals and transfers, recurring chores (including "edit all future occurrences"), allowances, rewards, KYC, subscriptions, notifications and reports.</li>
-          <li>Money movement through the Global Cash API, with RSA signature verification on top of JWT.</li>
-          <li>Allowances moved from scheduled jobs onto a Bull queue, so payouts are processed reliably and can be retried.</li>
-          <li>Real-time balance and chore updates pushed through Firebase; phone OTP login through Twilio.</li>
-          <li>Unit, integration and end-to-end tests for the APIs; CI/CD with GitHub Actions to AWS; Mixpanel analytics.</li>
+          <li>Built the whole backend API: wallets, allowances, recurring chores, savings goals, KYC and subscriptions.</li>
+          <li>Secured money movement with a payments partner API, signed requests and JWT.</li>
+          <li>Added real-time updates, queued payouts, automated tests and CI/CD to AWS.</li>
         </ul>
-        <p class="stack"><b>Stack</b> NestJS · TypeScript · PostgreSQL · TypeORM · Bull · CQRS · Firebase · Twilio · Swagger · Jest · GitHub Actions · AWS</p>
+        <p class="stack"><b>Stack</b> NestJS · TypeScript · PostgreSQL · Firebase · Twilio · AWS</p>
       </div>
     </section>
 
@@ -514,39 +397,22 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
       <div class="head"><h2>Debugging log</h2><span class="label">symptom, cause, fix</span></div>
       <div class="log">
         <div class="entry">
-          <div class="where">PlayInsight<br>2026</div>
-          <div><h4>Two cameras, but only 9% of shuttle points triangulated</h4>
-            <dl><dt>Symptom</dt><dd>Each camera tracked the shuttle well on its own, yet the fused result had almost no 3D shuttle positions.</dd>
-            <dt>Cause</dt><dd>A small, fast shuttle is detected on only a fraction of sampled frames per camera. Triangulation needed both cameras to hit the exact same frame, and two independent sparse streams rarely line up.</dd>
-            <dt>Fix</dt><dd>Bridge short gaps in each camera's track by interpolating between real detections, triangulate from those, and flag interpolated points so the viewer never presents them as raw detections.</dd></dl></div>
+          <div class="where">PlayInsight</div>
+          <div><h4>A whole match detected as one rally</h4>
+            <dl><dt>Cause</dt><dd>Two parts of the court calibration were solved separately and could disagree, placing the net off-screen.</dd>
+            <dt>Fix</dt><dd>Derive both from a single 3D camera solution.</dd></dl></div>
         </div>
         <div class="entry">
-          <div class="where">PlayInsight<br>Aug 2026</div>
-          <div><h4>One rally for an entire match</h4>
-            <dl><dt>Symptom</dt><dd>Some matches came back as a single rally lasting the whole video.</dd>
-            <dt>Cause</dt><dd>The floor homography and the net position were fitted separately from the same clicks. When they disagreed, the net line projected off-screen, so "shuttle above net" was never true and the rally never ended.</dd>
-            <dt>Fix</dt><dd>Solve the 3D camera pose once and derive both from it. If the pose can't be solved, fall back to the default court rather than a half-fitted one.</dd></dl></div>
+          <div class="where">Vocatech</div>
+          <div><h4>Users duplicated in Webex spaces</h4>
+            <dl><dt>Cause</dt><dd>Webex identifies a member two ways, and different code paths stored different IDs.</dd>
+            <dt>Fix</dt><dd>Store both and match on one everywhere.</dd></dl></div>
         </div>
         <div class="entry">
-          <div class="where">PlayInsight<br>Aug 2026</div>
-          <div><h4>A setting that was never saved</h4>
-            <dl><dt>Symptom</dt><dd>None yet. Found while making frame sampling configurable.</dd>
-            <dt>Cause</dt><dd>The engine never wrote <span class="mono">frame_skip</span> into the results metadata; it always stored the default of 3. The viewer syncs overlays using that value, so any other setting would have drifted silently.</dd>
-            <dt>Fix</dt><dd>Pass the value through and store it. Fixed before it could ship.</dd></dl></div>
-        </div>
-        <div class="entry">
-          <div class="where">Vocatech<br>Nov 2024</div>
-          <div><h4>The same person listed twice in a space</h4>
-            <dl><dt>Symptom</dt><dd>Duplicate members after people were added from inside Webex.</dd>
-            <dt>Cause</dt><dd>Webex has two IDs for a member (membership ID and person ID), and different code paths stored different ones.</dd>
-            <dt>Fix</dt><dd>Store both and match on the person ID everywhere.</dd></dl></div>
-        </div>
-        <div class="entry">
-          <div class="where">Vocatech<br>Sep 2025</div>
-          <div><h4>Token rotation broke parallel requests</h4>
-            <dl><dt>Symptom</dt><dd>API calls failed when the app made several requests at once.</dd>
-            <dt>Cause</dt><dd>Token rotation wasn't safe for concurrent requests: one request's rotation invalidated the token the others were still using.</dd>
-            <dt>Fix</dt><dd>Rotation that tolerates concurrent requests.</dd></dl></div>
+          <div class="where">Vocatech</div>
+          <div><h4>Requests failing under parallel load</h4>
+            <dl><dt>Cause</dt><dd>Each request rotated the auth token, invalidating it for the others.</dd>
+            <dt>Fix</dt><dd>Made token rotation safe for concurrent requests.</dd></dl></div>
         </div>
       </div>
     </section>
@@ -555,12 +421,12 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     <section id="work">
       <div class="head"><h2>Other work</h2><span class="label">selected</span></div>
       <div class="work">
-        <article><h3>Social media scheduler</h3><div class="meta">Freelance · 2026 · FastAPI, Next.js, PostgreSQL</div><p>Schedules and auto-publishes video to YouTube Shorts, Facebook, Instagram and TikTok through their official APIs. Each platform sits behind one adapter interface, OAuth tokens are encrypted at rest, and each channel is tracked separately so one failure doesn't block the rest.</p></article>
-        <article><h3>Advantec Industrial</h3><div class="meta">2024–26 · industrial QA system · PHP, MySQL</div><p>Took over the system that records pipe-bending jobs for an industrial fabricator. Added authentication, replaced an unsafe bulk-import path, and built tolerance, ovality and per-location operator features.</p></article>
-        <article><h3>Inside Retail network</h3><div class="meta">2017–20 · WordPress, Linux</div><p>Ran a retail-news publisher's main site and 50+ regional sites with 500k+ active users, including the servers, and built the plugin that syncs content across the network on a schedule.</p></article>
-        <article><h3>WebPTron: website image crawler</h3><div class="meta">2024 · Laravel, queues, Firebase · <a href="https://youtu.be/gM5PtUtS82I" target="_blank" rel="noopener">demo video</a></div><p>Enter a domain and it crawls the whole site, collects every image (including srcset, lazy-loaded and third-party sources, behind Cloudflare bot protection), converts them to WebP and reports the size saved. Crawling runs on background queues with live progress and a ZIP download at the end.</p></article>
-        <article><h3>My Business Journey</h3><div class="meta">2017–23 · Laravel, React/Redux · Australia</div><p>A gamified business-setup platform with partner lead hand-off, PDF business profiles and email automation. I built and maintained it for six years.</p></article>
-        <article><h3>Procurement to inventory sync</h3><div class="meta">2023–24 · Laravel</div><p>Daily sync of purchase orders, vendors and products from Procurify into inFlow Inventory. One queued job per order, rate-limit aware, with a failure dashboard and emailed reports.</p></article>
+        <article><h3>Social media scheduler</h3><div class="meta">2026 · FastAPI, Next.js</div><p>Schedules and auto-publishes video to YouTube, Facebook, Instagram and TikTok.</p></article>
+        <article><h3>WebPTron image crawler</h3><div class="meta">2024 · Laravel</div><p>Crawls a website, collects every image and converts them to WebP, with live progress.</p></article>
+        <article><h3>Advantec Industrial</h3><div class="meta">2024–26 · PHP, MySQL</div><p>Modernised and secured a quality-control system for an industrial pipe-bending fabricator.</p></article>
+        <article><h3>Inside Retail network</h3><div class="meta">2017–20 · WordPress, Linux</div><p>Ran a news publisher's 50+ regional sites with 500k+ active users, including the servers.</p></article>
+        <article><h3>My Business Journey</h3><div class="meta">2017–23 · Laravel, React · Australia</div><p>Built and maintained a gamified business-setup platform for six years.</p></article>
+        <article><h3>Procurement to inventory sync</h3><div class="meta">2023–24 · Laravel</div><p>Daily automated sync of purchase orders between Procurify and inFlow Inventory.</p></article>
       </div>
     </section>
 
@@ -581,10 +447,10 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     <section id="how">
       <div class="head"><h2>How I work</h2></div>
       <div class="principles">
-        <div><h3>Measure, then change</h3><p>I profile before optimising and keep the numbers. Most slow pages have one cause, and it is rarely where people first look.</p></div>
-        <div><h3>Write the cause down</h3><p>My changelogs explain why a bug happened, not only that it was fixed. The next person, often me, needs that.</p></div>
-        <div><h3>Own it past the merge</h3><p>Deploys, monitoring and the follow-up after launch are part of the job. I've run my own infrastructure on every recent project.</p></div>
-        <div><h3>Say what I don't know</h3><p>If I haven't used a tool in production, I say so and explain how I'll get up to speed.</p></div>
+        <div><h3>Measure, then change</h3><p>I profile before optimising. Most slow pages have one cause.</p></div>
+        <div><h3>Write the cause down</h3><p>Every fix records why the bug happened, not only that it was fixed.</p></div>
+        <div><h3>Own it past the merge</h3><p>Deploys, monitoring and follow-up after launch are part of the job.</p></div>
+        <div><h3>Say what I don't know</h3><p>If I haven't used a tool in production, I say so.</p></div>
       </div>
     </section>
 
@@ -592,10 +458,10 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     <section id="engage">
       <div class="head"><h2>Work with me</h2><span class="label">how companies usually bring me in</span></div>
       <div class="principles">
-        <div><h3>Technical lead or fractional CTO</h3><p>Architecture, hiring help, code review standards, CI/CD and release process for a team that needs senior direction without a full-time executive.</p></div>
-        <div><h3>Performance and reliability review</h3><p>Two weeks on your production system: trace the slow paths across frontend, API, database, cache and infrastructure, then fix the top issues or hand over a prioritised plan.</p></div>
-        <div><h3>AI features in production</h3><p>Vision or LLM features that run on real traffic, with queues, GPU or API cost control, evaluation and fallbacks, not only a demo notebook.</p></div>
-        <div><h3>Legacy takeover and modernisation</h3><p>Inherit a codebase nobody understands, make it reproducible with Docker and docs, upgrade it (for example PHP 7 to 8.3) and keep it running while it changes.</p></div>
+        <div><h3>Technical lead or fractional CTO</h3><p>Architecture, code review standards and release process for teams that need senior direction.</p></div>
+        <div><h3>Performance and reliability review</h3><p>Find and fix what makes your production system slow or fragile.</p></div>
+        <div><h3>AI features in production</h3><p>Vision or LLM features built to run on real traffic, with cost under control.</p></div>
+        <div><h3>Legacy takeover and modernisation</h3><p>Take over an inherited codebase, stabilise it and upgrade it without downtime.</p></div>
       </div>
     </section>
 
