@@ -250,7 +250,7 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     <section class="case" id="playinsight">
       <div class="kicker"><span>Freelance</span><span>Lead engineer</span><span>2026 – present</span></div>
       <h2>PlayInsight: turning match footage into player analytics</h2>
-      <p class="lede">I lead engineering on PlayInsight, a video analytics platform for badminton. A coach or player uploads a match filmed on one phone. PlayInsight finds the players, the shuttle and the rackets, reconstructs the court in 3D, splits the match into rallies and reports strokes, distance and speed for each player.</p>
+      <p class="lede">I lead engineering on PlayInsight, a video analytics platform for badminton. A coach or player uploads a match filmed on one phone, or on up to four phones around the court. PlayInsight finds the players, the shuttle and the rackets, reconstructs the court in 3D, splits the match into rallies, classifies every stroke, and reports distance, speed and shot mix for each player.</p>
 
       <figure>
         <div class="scroll">
@@ -310,6 +310,49 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
         <figcaption>Per-frame analysis never goes through the API. Workers write one SQLite file per video to storage; the browser fetches it once from the CDN and queries it locally while the video plays.</figcaption>
       </figure>
 
+
+      <figure>
+        <div class="scroll">
+          <svg viewBox="0 0 760 250" role="img" aria-labelledby="mc-t">
+            <title id="mc-t">Multi-camera fusion: cameras are synced by audio, analysed independently, then triangulated</title>
+            <defs><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+            <rect class="bx hl" x="20" y="20" width="150" height="56" rx="5"/><text class="t" x="34" y="44">Camera A</text><text class="s" x="34" y="63">primary timeline</text>
+            <rect class="bx" x="20" y="97" width="150" height="56" rx="5"/><text class="t" x="34" y="121">Camera B</text><text class="s" x="34" y="140">opposite corner</text>
+            <rect class="bx" x="20" y="174" width="150" height="56" rx="5"/><text class="t" x="34" y="198">Cameras C, D</text><text class="s" x="34" y="217">optional</text>
+
+            <rect class="bx" x="210" y="70" width="160" height="110" rx="5"/>
+            <text class="t" x="224" y="94">Audio sync</text>
+            <text class="s" x="224" y="116">filtered hit sounds</text>
+            <text class="s" x="224" y="134">cross-correlation</text>
+            <text class="s" x="224" y="152">offset + confidence</text>
+            <text class="s" x="224" y="170">manual fallback</text>
+
+            <rect class="bx" x="405" y="70" width="160" height="110" rx="5"/>
+            <text class="t" x="419" y="94">Per-camera analysis</text>
+            <text class="s" x="419" y="116">unchanged pipeline</text>
+            <text class="s" x="419" y="134">players in court-side</text>
+            <text class="s" x="419" y="152">slots 1–4</text>
+            <text class="s" x="419" y="170">own 3D camera pose</text>
+
+            <rect class="bx hl" x="600" y="40" width="140" height="170" rx="5"/>
+            <text class="t" x="614" y="64">Fusion</text>
+            <text class="s" x="614" y="86">DLT triangulation</text>
+            <text class="s" x="614" y="104">drop a camera if its</text>
+            <text class="s" x="614" y="122">reprojection > 40 px</text>
+            <text class="s" x="614" y="144">fill occlusions</text>
+            <text class="s" x="614" y="162">from other views</text>
+            <text class="s" x="614" y="184">3D shuttle height</text>
+
+            <path class="ar" d="M170 48 H190 V110 H206" marker-end="url(#ah3)"/>
+            <path class="ar" d="M170 125 H206" marker-end="url(#ah3)"/>
+            <path class="ar" d="M170 202 H190 V140 H206" marker-end="url(#ah3)"/>
+            <path class="ar" d="M370 125 H401" marker-end="url(#ah3)"/>
+            <path class="ar" d="M565 125 H596" marker-end="url(#ah3)"/>
+          </svg>
+        </div>
+        <figcaption>Multi-camera fusion. Because player slots are assigned by court side, camera A's player 1 is camera B's player 1, so no re-identification step is needed. The fused result uses the same file format as a single camera, so the viewer works unchanged.</figcaption>
+      </figure>
+
       <figure class="demo" aria-labelledby="demo-t">
         <div class="demo-head"><span class="label" id="demo-t">Try it: court calibration</span><span class="readout" id="readout">Move over the court</span></div>
         <div class="demo-grid">
@@ -324,24 +367,29 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
         <ul>
           <li><b>Custom models.</b> Shuttle detection and 5-keypoint racket pose models trained on annotated match footage, alongside YOLOv8-pose and RTMPose for players.</li>
           <li><b>Court geometry.</b> Calibration solves the full 3D camera pose from court lines and net posts, then derives the floor homography and net plane from it. Outlier points are rejected and per-point reprojection error is shown to the user.</li>
+          <li><b>Multi-camera tracking.</b> Two to four phones around the court are synced automatically by matching the sound of racket hits, then every player and shuttle position is triangulated from all cameras that see it. When a player is hidden behind their partner or the net post from one angle, another camera supplies the position, and the shuttle gets a true 3D height that one camera can't measure.</li>
+          <li><b>Player identity.</b> Players are assigned to fixed court-side slots. When two partners overlap and separate, jersey colour histograms decide who is who, so stats stay attached to the right person.</li>
+          <li><b>Stroke classification.</b> Each hit is detected from a wrist-velocity peak and classified as smash, drop, clear, lift, net shot or drive from wrist height relative to shoulders and hips and the swing direction. Players also get per-frame stances: ready, lunge, jump, reach, crouch.</li>
           <li><b>Rally detection.</b> A state machine with four start rules and five end rules (shuttle above the net, feet still, bounce, timeouts). Every decision is stored with its reason, so a wrong call can be replayed and explained.</li>
-          <li><b>Platform.</b> Multi-GB uploads, thumbnails and hover previews, a 30-day trash, a GPU job queue with live progress, cancel and retry, recovery of stuck jobs, player profiles across matches, and role-based permissions.</li>
+          <li><b>Platform.</b> Multi-GB uploads, match sessions that group several camera angles, a GPU job queue with live progress, cancel and retry, highlight video export with overlays rendered in, player profiles that track stats across matches, Stripe subscriptions with plan limits, and role-based permissions.</li>
           <li><b>Viewer.</b> Ten overlay layers drawn on canvas (skeleton, shuttle trail, heatmap, minimap and more), follow cam, frame stepping, and a 3D replay built from MotionBERT pose lifting.</li>
         </ul>
 
         <h3>Decisions</h3>
         <div class="adrs">
           <div class="adr"><span class="label">Decision</span><h4>Serverless GPU workers behind a queue</h4><p>Analysis runs on autoscaling GPU workers fed by a Redis queue. <span class="why">The load is bursty: a match needs minutes of GPU time, then nothing. Scaling to zero keeps cost proportional to use, and the queue keeps the API fast and makes jobs cancellable and retryable.</span></p></div>
+          <div class="adr"><span class="label">Decision</span><h4>Fuse cameras after analysis, not inside the tracker</h4><p>Each camera runs the normal single-camera pipeline; a separate fusion step combines the results. <span class="why">Trackers and the rally state machine are stateful per video stream. Making them multi-view aware would have meant rewriting them. Fusing afterwards kept them untouched, and the output keeps the same format, so the viewer needed no changes.</span></p></div>
+          <div class="adr"><span class="label">Decision</span><h4>Sync cameras by the sound of the shuttle</h4><p>Offsets come from cross-correlating band-passed energy envelopes of each camera's audio. <span class="why">Raw waveform correlation failed on real footage (confidence 0.01–0.03) because rallies are full of near-identical hit sounds. Filtering to impact frequencies gave confidence of 0.18–0.84 with one dominant peak, and anything below the threshold falls back to a manual scrubber.</span></p></div>
           <div class="adr"><span class="label">Decision</span><h4>Ship results as a SQLite file instead of an API</h4><p>Each analysis is one <span class="mono">.analysis.db</span> in object storage. <span class="why">The viewer reads thousands of rows per second while someone scrubs the video. Through REST that is slow and expensive; a file cached at the CDN and queried in the browser is fast and costs nothing per request.</span></p></div>
           <div class="adr"><span class="label">Decision</span><h4>Choose the 3D model by measurement</h4><p>We compared MotionBERT's mesh and pose models against the real 2D input. <span class="why">The mesh model correlated 0.26 with the input's X axis, the pose model 0.9988. We shipped the pose model and documented the remaining torso-tilt bias as a single-camera limit, with multi-camera triangulation as the fix.</span></p></div>
         </div>
 
         <div class="facts">
           <div><b>0.885</b><span>mAP50, in-house shuttle detector</span></div>
-          <div><b>10</b><span>synchronised overlay layers in the viewer</span></div>
-          <div><b>29</b><span>releases in 7 weeks, each with a changelog</span></div>
+          <div><b>2–4</b><span>cameras fused per match, synced by audio</span></div>
+          <div><b>6</b><span>stroke types classified per hit</span></div>
         </div>
-        <p class="stack"><b>Stack</b> Python · YOLOv8 · RTMPose · MotionBERT · OpenCV · NumPy · FFmpeg · FastAPI · SQLAlchemy · PostgreSQL · Redis · S3 · Modal · Next.js · TypeScript · Vercel · pytest</p>
+        <p class="stack"><b>Stack</b> Python · YOLOv8 · RTMPose · MotionBERT · OpenCV · NumPy · SciPy · FFmpeg · FastAPI · SQLAlchemy · PostgreSQL · Redis · S3 · Modal · Stripe · Next.js · TypeScript · Vercel · pytest</p>
       </div>
     </section>
 
@@ -465,6 +513,13 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
     <section id="log">
       <div class="head"><h2>Debugging log</h2><span class="label">symptom, cause, fix</span></div>
       <div class="log">
+        <div class="entry">
+          <div class="where">PlayInsight<br>2026</div>
+          <div><h4>Two cameras, but only 9% of shuttle points triangulated</h4>
+            <dl><dt>Symptom</dt><dd>Each camera tracked the shuttle well on its own, yet the fused result had almost no 3D shuttle positions.</dd>
+            <dt>Cause</dt><dd>A small, fast shuttle is detected on only a fraction of sampled frames per camera. Triangulation needed both cameras to hit the exact same frame, and two independent sparse streams rarely line up.</dd>
+            <dt>Fix</dt><dd>Bridge short gaps in each camera's track by interpolating between real detections, triangulate from those, and flag interpolated points so the viewer never presents them as raw detections.</dd></dl></div>
+        </div>
         <div class="entry">
           <div class="where">PlayInsight<br>Aug 2026</div>
           <div><h4>One rally for an entire match</h4>
