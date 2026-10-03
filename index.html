@@ -41,6 +41,7 @@
 }
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 1.125rem/1.62 var(--body);
@@ -213,9 +214,9 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
         <dt>Time zone</dt><dd>UTC+5:45, with overlap for US and EU teams</dd>
       </dl>
       <div class="links">
-        <a href="mailto:4slimbu@gmail.com">4slimbu@gmail.com</a>
+        <a href="#contact">Email</a>
         <a href="https://github.com/4slimbu" target="_blank" rel="noopener">github.com/4slimbu</a>
-        <a href="https://www.linkedin.com/in/limvus/" target="_blank" rel="noopener">linkedin.com/in/limvus</a>
+        <a href="https://www.linkedin.com/in/4slimbu/" target="_blank" rel="noopener">linkedin.com/in/4slimbu</a>
       </div>
     </header>
 
@@ -515,7 +516,7 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
       <div class="head"><h2>Education and speaking</h2></div>
       <div class="creds">
         <div><span class="when">2023</span><p>Speaker, WordCamp Kathmandu: <a href="https://kathmandu.wordcamp.org/2023/session/elevate-your-wordpress-plugin-development-with-test-driven-development-tdd/" target="_blank" rel="noopener">Elevate your WordPress plugin development with TDD</a> (<a href="https://github.com/4slimbu/wordcamp-tdd-demo" target="_blank" rel="noopener">demo code</a>)</p></div>
-        <div><span class="when">2020</span><p>Full Stack Developer: <a href="https://www.freecodecamp.org/certification/limvus/full-stack" target="_blank" rel="noopener">freeCodeCamp</a> and <a href="https://graduation.udacity.com/confirm/UAKQGDNT" target="_blank" rel="noopener">Udacity</a></p></div>
+        <div><span class="when">2020</span><p>Full Stack Developer: <a href="https://www.freecodecamp.org/certification/limvus/full-stack" target="_blank" rel="noopener">freeCodeCamp</a> and Udacity</p></div>
         <div><span class="when">2011 – 2013</span><p>M.Sc. Physics, Tribhuvan University. Thesis used data analysis to study the causes of poverty in Nepal.</p></div>
         <div><span class="when">2013</span><p>National Web Competition award</p></div>
       </div>
@@ -526,9 +527,10 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
       <div class="head"><h2>Contact</h2></div>
       <p class="col">I'm open to senior backend, full-stack and applied AI work, contract or full-time, remote. Tell me what you're building and what's getting in the way.</p>
       <div class="contact">
-        <span class="addr" id="addr">4slimbu@gmail.com</span>
-        <button class="btn" id="copy" type="button">Copy email</button>
-        <a class="btn" href="https://www.linkedin.com/in/limvus/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="addr" id="addr" hidden></span>
+        <button class="btn" id="reveal" type="button">Show email</button>
+        <button class="btn" id="copy" type="button" hidden>Copy email</button>
+        <a class="btn" href="https://www.linkedin.com/in/4slimbu/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://github.com/4slimbu" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
@@ -549,7 +551,12 @@ footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--line);font:40
   }
   ['theme','theme2'].forEach(function(id){var b=document.getElementById(id); if(b) b.addEventListener('click',flip);});
 
-  var copy=document.getElementById('copy'), addr=document.getElementById('addr');
+  var copy=document.getElementById('copy'), addr=document.getElementById('addr'), reveal=document.getElementById('reveal');
+  reveal.addEventListener('click',function(){
+    var u=['4s','limbu'].join(''), d=['gmail','com'].join('.');
+    addr.textContent=u+'\u0040'+d;
+    addr.hidden=false; copy.hidden=false; reveal.hidden=true;
+  });
   copy.addEventListener('click',function(){
     function fallback(){var r=document.createRange(); r.selectNodeContents(addr); var s=getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent='Selected, press Ctrl+C';}
     if(navigator.clipboard&&navigator.clipboard.writeText){
